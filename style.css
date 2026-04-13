@@ -261,14 +261,13 @@ a {
    HERO SECTION
    ======================== */
 .hero-section {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 120px 20px 40px;
     position: relative;
-    padding-top: 100px; /* Increased to prevent navbar overshadowing */
 }
 
 .hero-content {
@@ -837,11 +836,10 @@ form .btn {
     width: 100%;
     overflow: hidden;
     background: transparent;
-    padding: 30px 0;
+    padding: 20px 0 40px;
     position: relative;
-    border-top: 1px solid rgba(2, 132, 199, 0.1);
-    margin-top: 10px;
-    margin-bottom: 50px;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 .marquee-wrapper::before, .marquee-wrapper::after {
     content: '';

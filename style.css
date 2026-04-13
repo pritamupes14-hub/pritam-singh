@@ -840,7 +840,7 @@ form .btn {
     padding: 30px 0;
     position: relative;
     border-top: 1px solid rgba(2, 132, 199, 0.1);
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom: 50px;
 }
 .marquee-wrapper::before, .marquee-wrapper::after {

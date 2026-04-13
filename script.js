@@ -33,40 +33,41 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Email Copy Logic with Highlight Effect
-    const copyBtn = document.getElementById('copy-email-btn');
-    const emailWrapper = document.getElementById('email-wrapper');
-    const emailText = document.getElementById('user-email').textContent;
-    const notification = document.getElementById('copy-notification');
-
-    copyBtn.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(emailText);
+    // Function to handle tab switching
+    window.switchTab = function(tabId) {
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+            tab.style.display = 'none'; // Ensure inline hidden
+        });
+        
+        // Deactivate all nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Show selected tab
+        const selectedTab = document.getElementById('tab-' + tabId);
+        if (selectedTab) {
+            selectedTab.style.display = 'block';
+            setTimeout(() => selectedTab.classList.add('active'), 10);
             
-            // Visual feedback loop
-            emailWrapper.classList.add('highlight');
-            notification.classList.add('show');
-            
-            // Icon transition
-            const icon = copyBtn.querySelector('i');
-            icon.classList.remove('fa-copy');
-            icon.classList.add('fa-check');
-            
-            setTimeout(() => {
-                emailWrapper.classList.remove('highlight');
-                notification.classList.remove('show');
-                icon.classList.remove('fa-check');
-                icon.classList.add('fa-copy');
-            }, 2500);
-            
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-            notification.textContent = "Failed to copy email!";
-            notification.style.color = "#ef4444";
-            notification.classList.add('show');
-            setTimeout(() => notification.classList.remove('show'), 2500);
+            // Re-trigger scroll spy for elements in new tab
+            selectedTab.querySelectorAll('.section-fade').forEach(section => {
+                section.classList.remove('visible'); // Reset visibility
+                observer.observe(section);
+            });
         }
-    });
+        
+        // Activate clicked nav link
+        const activeNav = document.getElementById('nav-' + tabId);
+        if (activeNav) {
+            activeNav.classList.add('active');
+        }
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     // Simple functionality for the custom insight form modal
     const insightForm = document.getElementById('addInsightForm');

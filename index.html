@@ -20,17 +20,17 @@
     <nav id="navbar" class="navbar glass-effect">
         <div class="nav-brand">PS.</div>
         <ul class="nav-links">
-            <li><a href="#hero" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#insights">Insights</a></li>
-            <li><a href="#contact" class="btn-nav">Let's Talk</a></li>
+            <li><a href="#" onclick="switchTab('home'); return false;" id="nav-home" class="active">Home</a></li>
+            <li><a href="#" onclick="switchTab('about'); return false;" id="nav-about">About Me</a></li>
+            <li><a href="#" onclick="switchTab('blog'); return false;" id="nav-blog">Blog & Knowledge Insights</a></li>
         </ul>
         <div class="hamburger">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
+    <!-- TAB: HOME -->
+    <div id="tab-home" class="tab-content active">
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-content fade-in-up">
@@ -41,18 +41,59 @@
             <h1 class="hero-title">Pritam <span>Singh</span></h1>
             <h2 class="hero-subtitle">Strategy Consultant | Energy Avenues | Business Resilience, Transformation & Growth Support</h2>
             <p class="hero-location" style="color: var(--accent-color); font-weight: 600; margin-bottom: 20px; font-size: 1.1rem;"><i class="fas fa-map-marker-alt"></i> Gurgaon (India)</p>
-            <p class="hero-description">Helping energy companies navigate the transition, strategize investments, and build resilient business models through data-driven insights and agentic AI.</p>
-            <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+            <p class="hero-description" style="margin-bottom: 20px;">Helping energy companies navigate the transition, strategize investments, and build resilient business models through data-driven insights and agentic AI.</p>
+            <p class="hero-description" style="margin-bottom: 40px; font-weight: 600;">I am always open to connecting with industry professionals to exchange ideas, discuss the latest energy transitions, and explore collaborative opportunities.</p>
+            <div class="hero-cta" style="flex-wrap: wrap; justify-content: center; gap: 15px;">
+                <a href="mailto:pritam.upes14@gmail.com?subject=Strategic%20Advisory%20%26%20Collaboration&body=Hi%20Pritam,%0A%0AI%20was%20reviewing%20your%20portfolio%20and%20would%20like%20to%20connect%20to%20discuss%20collaborations.%0A%0ABest%20regards," class="btn btn-primary"><i class="fas fa-envelope"></i> Get In Touch</a>
                 <a href="https://www.linkedin.com/in/pritam-singh-1407/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-            </div>
-            <div class="scroll-indicator">
-                <p>Scroll down</p>
-                <i class="fas fa-chevron-down"></i>
+                <button onclick="switchTab('blog');" class="btn btn-secondary" style="background: var(--bg-card);"><i class="fas fa-book-open"></i> Explore Pritam's Blog & Knowledge Materials</button>
             </div>
         </div>
     </section>
 
+    <!-- AI Resources Section -->
+    <section id="ai-resources" class="about-section scroll-spy" style="padding-top: 50px;">
+        <div class="container section-fade">
+            <h2 class="section-title"><span>AI</span> Agentic AI & Knowledge Hub</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px; max-width: 700px; margin-inline: auto;">Curated resources and materials for learning about Artificial Intelligence, Agentic workflows, and cloud-based AI tools from credible sources.</p>
+            
+            <div class="card-grid">
+                <a href="https://aws.amazon.com/machine-learning/" target="_blank" class="glass-card glass-hover" style="display: block; color: inherit; text-align: center;">
+                    <div style="font-size: 3rem; color: #ff9900; margin-bottom: 15px;"><i class="fab fa-aws"></i></div>
+                    <h3 style="margin-bottom: 10px; color: var(--text-primary);">AWS AI & ML</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Comprehensive guides, architecture patterns, and free tier resources for building on Amazon Web Services.</p>
+                </a>
+                <a href="https://cloud.google.com/ai-cloud" target="_blank" class="glass-card glass-hover" style="display: block; color: inherit; text-align: center;">
+                    <div style="font-size: 3rem; color: #ea4335; margin-bottom: 15px;"><i class="fab fa-google"></i></div>
+                    <h3 style="margin-bottom: 10px; color: var(--text-primary);">Google Cloud AI</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Generative AI learning paths, Vertex AI tutorials, and official free knowledge material for practitioners.</p>
+                </a>
+                <a href="https://www.youtube.com/@DeepLearningAI" target="_blank" class="glass-card glass-hover" style="display: block; color: inherit; text-align: center;">
+                    <div style="font-size: 3rem; color: #ff0000; margin-bottom: 15px;"><i class="fab fa-youtube"></i></div>
+                    <h3 style="margin-bottom: 10px; color: var(--text-primary);">DeepLearning.AI</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">World-class educational videos and courses by industry leaders on fundamental and advanced AI concepts.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Marquee -->
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            <span>Evalueserve</span>
+            <span>Mordor Intelligence</span>
+            <span>GlobalData</span>
+            <span>UPES Dehradun</span>
+            <span>Evalueserve</span>
+            <span>Mordor Intelligence</span>
+            <span>GlobalData</span>
+            <span>UPES Dehradun</span>
+        </div>
+    </div>
+    </div>
+
+    <!-- TAB: ABOUT -->
+    <div id="tab-about" class="tab-content" style="display: none;">
     <!-- About Section -->
     <section id="about" class="about-section scroll-spy">
         <div class="container section-fade">
@@ -151,11 +192,14 @@
             </div>
         </div>
     </section>
+    </div>
 
+    <!-- TAB: BLOG -->
+    <div id="tab-blog" class="tab-content" style="display: none;">
     <!-- Publications Section -->
     <section id="insights" class="insights-section scroll-spy">
         <div class="container section-fade">
-            <h2 class="section-title"><span>03.</span> Knowledge Insights & Reports</h2>
+            <h2 class="section-title"><span>03.</span> Blog & Knowledge Insights</h2>
             <div class="card-grid">
                 
                 <article class="pub-card glass-card glass-hover">
@@ -171,6 +215,19 @@
                     <p class="pub-desc">Exploration of infrastructure readiness, cost abatement, and the strategic positioning of green hydrogen globally.</p>
                     <a href="#" class="pub-link">Read More <i class="fas fa-external-link-alt"></i></a>
                 </article>
+                <article class="pub-card glass-card glass-hover">
+                    <div class="pub-date">2024</div>
+                    <h3 class="pub-title">The Russian Nesting Doll Metaphor: AI, LLMs, and GenAI</h3>
+                    <p class="pub-desc">The last year has basically been a non-stop game of #AI Buzzword Bingo. I explore the chaos using a 'Russian Nesting Doll' metaphor—from Artificial Intelligence down to Agentic AI.</p>
+                    <a href="https://www.linkedin.com/posts/pritam-singh-1407_ai-llm-genai-activity-7425932290091859968-rsVk" target="_blank" class="pub-link">Read More <i class="fas fa-external-link-alt"></i></a>
+                </article>
+
+                <article class="pub-card glass-card glass-hover">
+                    <div class="pub-date">2024</div>
+                    <h3 class="pub-title">Energy Security Trumps Transition Amid Geopolitical Volatility</h3>
+                    <p class="pub-desc">The polite fiction of an advanced "Energy Transition" strategy has officially retired. We are witnessing an aggressive paradigm shift toward Energy Security and Organic Reserve Replenishment.</p>
+                    <a href="https://www.linkedin.com/posts/pritam-singh-1407_energysector-oilandgas-strategy-activity-7443664866554388480-8_Gc" target="_blank" class="pub-link">Read More <i class="fas fa-external-link-alt"></i></a>
+                </article>
                 
                 <!-- Placeholder for future blog posts/inputs -->
                 <article class="pub-card glass-card add-new active-form-trigger" onclick="document.getElementById('insightModal').style.display='flex'">
@@ -182,35 +239,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section scroll-spy">
-        <div class="container section-fade">
-            <h2 class="section-title"><span>04.</span> Let's Connect</h2>
-            <div class="contact-card glass-card">
-                <p>I am always open to connecting with industry professionals to exchange ideas, discuss the latest energy transitions, and explore collaborative opportunities.</p>
-                
-                <div class="email-wrapper" id="email-wrapper">
-                    <span class="email-text" id="user-email">pritam.upes14@gmail.com</span>
-                    <button class="copy-btn" id="copy-email-btn" title="Copy to clipboard">
-                        <i class="fas fa-copy"></i>
-                    </button>
-                    <a href="mailto:pritam.upes14@gmail.com" class="mailto-btn" title="Send Email">
-                        <i class="fas fa-paper-plane"></i>
-                    </a>
-                </div>
-                <div style="display: block;"></div>
-                <!-- LinkedIn Box -->
-                <div class="email-wrapper" style="cursor: pointer;" onclick="window.open('https://www.linkedin.com/in/pritam-singh-1407', '_blank')">
-                    <span class="email-text"><i class="fab fa-linkedin" style="color: #0e76a8; margin-right: 8px;"></i> linkedin.com/in/pritam-singh-1407</span>
-                    <button class="mailto-btn" title="Open LinkedIn" style="background: transparent; color: var(--accent-color);">
-                        <i class="fas fa-external-link-alt"></i>
-                    </button>
-                </div>
-                <div id="copy-notification" class="notification">Email copied to clipboard!</div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Modal for adding new insights -->
     <div id="insightModal" class="modal glass-effect">

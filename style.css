@@ -816,6 +816,68 @@ form .btn {
     transform: translateY(0) scale(1);
 }
 
+/* ========================
+   TABS & MARQUEE
+   ======================== */
+.tab-content {
+    display: none;
+    animation: fadeInTab 0.5s ease-out forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    padding: 30px 0;
+    position: relative;
+    border-top: 1px solid rgba(2, 132, 199, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.marquee-wrapper::before, .marquee-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+}
+.marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-base), rgba(244,247,251,0));
+}
+.marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-base), rgba(244,247,251,0));
+}
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-marquee 20s linear infinite;
+}
+.marquee-track span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    margin: 0 40px;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 1px;
+}
+@keyframes scroll-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
 @media (max-width: 768px) {
     .navbar { padding: 0 20px; height: 70px; background: rgba(255,255,255,0.9); }
     .nav-links { display: none; }

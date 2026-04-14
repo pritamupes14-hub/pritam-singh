@@ -15,6 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Mobile Hamburger Menu
+    const hamburger = document.querySelector('.hamburger');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    if (hamburger && navLinksContainer) {
+        hamburger.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('show');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+                if (navLinksContainer.classList.contains('show')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+    }
+
     // Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
@@ -63,6 +83,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const activeNav = document.getElementById('nav-' + tabId);
         if (activeNav) {
             activeNav.classList.add('active');
+        }
+
+        // Close mobile menu if open
+        const navLinksContainer = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger i');
+        if (navLinksContainer && navLinksContainer.classList.contains('show')) {
+            navLinksContainer.classList.remove('show');
+            if (hamburger) {
+                hamburger.classList.remove('fa-times');
+                hamburger.classList.add('fa-bars');
+            }
         }
         
         // Scroll to top
